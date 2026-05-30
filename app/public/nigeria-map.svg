@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#FDF8F3"/>
+  <g transform="translate(150, 50)">
+    <!-- Simplified Nigeria map outline -->
+    <path d="M200 20 L320 25 L350 80 L340 150 L360 200 L380 280 L370 350 L350 420 L320 480 L280 500 L240 490 L200 500 L160 480 L140 420 L120 350 L100 280 L80 200 L100 150 L120 80 L160 40 Z" 
+          fill="#F5EDE4" stroke="#E8DDD0" stroke-width="2"/>
+
+    <!-- State boundary lines (simplified) -->
+    <path d="M200 20 L200 500 M260 25 L260 490" stroke="#E8DDD0" stroke-width="1" fill="none"/>
+    <path d="M120 150 L360 150 M100 280 L380 280 M120 350 L370 350" stroke="#E8DDD0" stroke-width="1" fill="none"/>
+
+    <!-- Red dots for active counseling locations -->
+    <circle cx="200" cy="100" r="6" fill="#DC2626"/>
+    <circle cx="260" cy="80" r="5" fill="#DC2626"/>
+    <circle cx="320" cy="120" r="7" fill="#DC2626"/>
+    <circle cx="180" cy="200" r="5" fill="#DC2626"/>
+    <circle cx="280" cy="180" r="6" fill="#DC2626"/>
+    <circle cx="240" cy="250" r="5" fill="#DC2626"/>
+    <circle cx="320" cy="220" r="6" fill="#DC2626"/>
+    <circle cx="160" cy="320" r="7" fill="#DC2626"/>
+    <circle cx="260" cy="300" r="5" fill="#DC2626"/>
+    <circle cx="340" cy="320" r="6" fill="#DC2626"/>
+    <circle cx="200" cy="400" r="5" fill="#DC2626"/>
+    <circle cx="280" cy="380" r="7" fill="#DC2626"/>
+    <circle cx="320" cy="420" r="5" fill="#DC2626"/>
+    <circle cx="240" cy="450" r="6" fill="#DC2626"/>
+
+    <!-- Teal dots for assessment centers -->
+    <circle cx="230" cy="150" r="4" fill="#3D8B8B"/>
+    <circle cx="300" cy="180" r="4" fill="#3D8B8B"/>
+    <circle cx="150" cy="250" r="4" fill="#3D8B8B"/>
+    <circle cx="220" cy="320" r="4" fill="#3D8B8B"/>
+    <circle cx="300" cy="280" r="4" fill="#3D8B8B"/>
+    <circle cx="180" cy="380" r="4" fill="#3D8B8B"/>
+    <circle cx="260" cy="420" r="4" fill="#3D8B8B"/>
+    <circle cx="300" cy="380" r="4" fill="#3D8B8B"/>
+
+    <!-- Legend -->
+    <g transform="translate(420, 100)">
+      <text x="0" y="0" font-family="Arial" font-size="14" font-weight="bold" fill="#292524">Service Locations</text>
+      <circle cx="10" cy="25" r="6" fill="#DC2626"/>
+      <text x="25" y="30" font-family="Arial" font-size="12" fill="#57534E">Counseling Center</text>
+      <circle cx="10" cy="50" r="4" fill="#3D8B8B"/>
+      <text x="25" y="55" font-family="Arial" font-size="12" fill="#57534E">Assessment Center</text>
+    </g>
+
+    <!-- Title -->
+    <text x="230" y="550" font-family="Arial" font-size="16" font-weight="bold" fill="#292524" text-anchor="middle">Nigeria - Service Coverage Map</text>
+  </g>
+</svg>
