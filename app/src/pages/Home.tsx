@@ -1,15 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import {
   ClipboardCheck,
-  MessageCircle,
-  Stethoscope,
+  Phone,
   Shield,
   Globe,
   Clock,
   Heart,
-  Users,
   BookOpen,
   Play,
   Headphones,
@@ -38,39 +36,6 @@ const staggerContainer = {
   animate: { transition: { staggerChildren: 0.1 } },
 }
 
-const staggerContainerFast = {
-  animate: { transition: { staggerChildren: 0.08 } },
-}
-
-function AnimatedCounter({ target, suffix = '', duration = 2 }: { target: string; suffix?: string; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-50px' })
-  const [display, setDisplay] = useState('0')
-
-  useEffect(() => {
-    if (!inView) return
-    const numeric = parseInt(target.replace(/[^0-9]/g, ''), 10)
-    if (Number.isNaN(numeric)) {
-      setDisplay(target)
-      return
-    }
-    const startTime = performance.now()
-    const tick = (now: number) => {
-      const elapsed = (now - startTime) / 1000
-      const progress = Math.min(elapsed / duration, 1)
-      // ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3)
-      const current = Math.floor(eased * numeric)
-      setDisplay(current.toLocaleString())
-      if (progress < 1) requestAnimationFrame(tick)
-      else setDisplay(numeric.toLocaleString() + suffix)
-    }
-    requestAnimationFrame(tick)
-  }, [inView, target, suffix, duration])
-
-  return <span ref={ref}>{display}</span>
-}
-
 /* ------------------------------------------------------------------ */
 /*  Section 1: Announcement Bar                                       */
 /* ------------------------------------------------------------------ */
@@ -97,8 +62,8 @@ function AnnouncementBar() {
             </span>
             <span className="hidden sm:flex items-center gap-1.5 text-[13px] font-semibold text-[#DC2626] truncate">
               Need help now? Call{' '}
-              <a href="tel:+2348001234567" className="underline underline-offset-2">
-                0800 123 4567
+              <a href="tel:08094455221" className="underline underline-offset-2">
+                0809 445 5221
               </a>
             </span>
           </div>
@@ -121,10 +86,10 @@ function AnnouncementBar() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100dvh-72px)] bg-[#FDF8F3]">
+    <section className="relative min-h-[calc(100dvh-80px)] bg-[#FDF8F3] pt-[80px]">
       {/* Two-column layout */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row min-h-[calc(100dvh-72px)]">
+        <div className="flex flex-col lg:flex-row min-h-[calc(100dvh-80px)]">
           {/* Left: Content */}
           <div className="flex flex-col justify-center py-12 lg:py-0 lg:w-[55%] lg:pr-8 relative z-10">
             <motion.h1
@@ -157,7 +122,7 @@ function HeroSection() {
                 Take Free Assessment
               </Link>
               <a
-                href="https://wa.me/2348001234567"
+                href="https://wa.me/2348094455221"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-[#25D366] px-7 py-3.5 text-base font-semibold text-white hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-250 shadow-whatsapp"
@@ -167,13 +132,6 @@ function HeroSection() {
                 </svg>
                 Chat on WhatsApp
               </a>
-              <Link
-                to="/find-support"
-                className="inline-flex items-center rounded-lg border-2 border-[#DC2626] px-6 py-3 text-base font-semibold text-[#DC2626] hover:bg-[#FEE2E2] hover:text-[#B91C1C] active:scale-[0.98] transition-all duration-250"
-              >
-                <Users className="mr-2 h-5 w-5" />
-                Find Support
-              </Link>
             </motion.div>
 
             {/* Trust Badges */}
@@ -232,83 +190,7 @@ function HeroSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 3: Mission / Stats                                        */
-/* ------------------------------------------------------------------ */
-
-function MissionSection() {
-  const sectionRef = useRef(null)
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' })
-
-  const stats = [
-    { number: '50000', suffix: '+', label: 'People supported' },
-    { number: '25000', suffix: '+', label: 'Screenings completed' },
-    { number: '36', suffix: '', label: 'States covered' },
-    { number: '100', suffix: '+', label: 'Languages supported' },
-  ]
-
-  return (
-    <section ref={sectionRef} className="w-full bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Text */}
-          <motion.div
-            {...fadeUp}
-            animate={inView ? fadeUp.animate : fadeUp.initial}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
-          >
-            <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-[#DC2626]">
-              About Red Aid Nigeria
-            </span>
-            <h2 className="mt-4 font-display text-[32px] lg:text-[48px] font-bold leading-[1.1] tracking-[-0.01em] text-[#1C1917] max-w-[520px]">
-              Dedicated to mental health and psychosocial support for every Nigerian
-            </h2>
-            <p className="mt-6 text-base leading-[1.7] text-[#57534E] max-w-[480px]">
-              Red Aid Nigeria is a leading nonprofit organization committed to providing accessible, culturally sensitive mental health services. Through digital innovation and community engagement, we bridge the gap between those in need and life-changing psychosocial support.
-            </p>
-            <div className="mt-8">
-              <Link
-                to="/about"
-                className="inline-flex items-center text-[#292524] hover:text-[#DC2626] transition-colors duration-200 text-base font-medium"
-              >
-                Learn More About Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right: Stats Grid */}
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            animate={inView ? 'animate' : 'initial'}
-            className="grid grid-cols-2 gap-0"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeUp}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.15,
-                  ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
-                }}
-                className="border-b border-[#E7E5E4] py-5 px-2"
-              >
-                <div className="font-accent text-[32px] font-semibold text-[#DC2626]">
-                  <AnimatedCounter target={stat.number} suffix={stat.suffix} />
-                </div>
-                <div className="mt-1 text-sm text-[#57534E]">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ------------------------------------------------------------------ */
-/*  Section 4: Services / How It Works                                */
+/*  Section 3: Services / How It Works                                */
 /* ------------------------------------------------------------------ */
 
 function ServicesSection() {
@@ -328,26 +210,26 @@ function ServicesSection() {
       badge: 'Takes 3 minutes',
     },
     {
-      icon: MessageCircle,
+      icon: BookOpen,
       iconBg: 'bg-[#E0F2F2]',
       iconColor: 'text-[#3D8B8B]',
-      title: 'Chat with Our AI',
-      body: 'Our mental health AI assistant is available 24/7 to provide emotional support, coping strategies, and guide you to resources.',
-      cta: 'Chat Now',
-      ctaLink: '/ai-assistant',
+      title: 'Browse Resources',
+      body: 'Explore our library of mental health articles, guides, videos, and audio resources tailored for the Nigerian community.',
+      cta: 'View Resources',
+      ctaLink: '/resources',
       ctaStyle: 'secondary' as const,
-      badge: 'Available 24/7',
+      badge: 'Free Access',
     },
     {
-      icon: Stethoscope,
+      icon: Phone,
       iconBg: 'bg-[#FEE2E2]',
       iconColor: 'text-[#DC2626]',
-      title: 'Find a Counselor',
-      body: 'Connect with qualified mental health professionals in your area. Book sessions, get referrals, and receive ongoing support.',
-      cta: 'Find Support',
-      ctaLink: '/find-support',
+      title: 'Talk to Someone',
+      body: 'Reach out to our support team via phone or WhatsApp. Speak with trained counselors who understand your needs.',
+      cta: 'Get in Touch',
+      ctaLink: '/contact',
       ctaStyle: 'secondary' as const,
-      badge: 'Professional Care',
+      badge: 'Available 24/7',
     },
   ]
 
@@ -432,89 +314,7 @@ function ServicesSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 5: Impact Dashboard                                       */
-/* ------------------------------------------------------------------ */
-
-function ImpactSection() {
-  const sectionRef = useRef(null)
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' })
-
-  const impactStats = [
-    { icon: Users, color: 'text-[#DC2626]', bg: 'bg-[#FEE2E2]', value: '50000+', label: 'Beneficiaries Served' },
-    { icon: ClipboardCheck, color: 'text-[#6B9080]', bg: 'bg-[#E8F0EC]', value: '25000+', label: 'Assessments Completed' },
-    { icon: Stethoscope, color: 'text-[#3D8B8B]', bg: 'bg-[#E0F2F2]', value: '5000+', label: 'Referrals Made' },
-    { icon: Globe, color: 'text-[#D97706]', bg: 'bg-[#FEF3C7]', value: '100+', label: 'Languages Supported' },
-  ]
-
-  return (
-    <section ref={sectionRef} className="w-full bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          {...fadeUp}
-          animate={inView ? fadeUp.animate : fadeUp.initial}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
-          className="text-center mb-12 lg:mb-16"
-        >
-          <span className="text-[13px] font-semibold uppercase tracking-[0.1em] text-[#DC2626]">
-            Our Impact
-          </span>
-          <h2 className="mt-4 font-display text-[32px] lg:text-[48px] font-bold leading-[1.1] text-[#1C1917]">
-            Making a difference across Nigeria
-          </h2>
-        </motion.div>
-
-        {/* Stats Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {impactStats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              variants={fadeUp}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.15,
-                ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
-              }}
-              className="bg-white rounded-2xl border border-[#E7E5E4] p-8 text-center hover:shadow-card-hover transition-shadow duration-300"
-            >
-              <div className={`mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full ${stat.bg}`}>
-                <stat.icon className={`h-6 w-6 ${stat.color}`} />
-              </div>
-              <div className="mt-4 font-accent text-[36px] lg:text-[56px] font-semibold leading-none tracking-[-0.03em] text-[#1C1917]">
-                <AnimatedCounter target={stat.value.replace(/[^0-9]/g, '')} suffix="+" />
-              </div>
-              <div className="mt-2 text-sm text-[#57534E]">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Nigeria Map */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
-          className="mt-12 lg:mt-16 flex justify-center"
-        >
-          <div className="max-w-[900px] w-full">
-            <img
-              src="/nigeria-map.svg"
-              alt="Map of Nigeria showing Red Aid service locations"
-              className="w-full h-auto rounded-2xl"
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-/* ------------------------------------------------------------------ */
-/*  Section 6: Resources Preview                                      */
+/*  Section 4: Resources Preview                                      */
 /* ------------------------------------------------------------------ */
 
 function ResourcesSection() {
@@ -758,118 +558,6 @@ function TestimonialsSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 8: Partners & CTA                                         */
-/* ------------------------------------------------------------------ */
-
-function PartnersSection() {
-  const sectionRef = useRef(null)
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' })
-
-  const partners = [
-    { name: 'Partner NGO', logo: '/partner-ngo-1.svg' },
-    { name: 'Government Agency', logo: '/partner-gov.svg' },
-    { name: 'Health Partner', logo: '/partner-health.svg' },
-    { name: 'Development Partner', logo: '/partner-dev.svg' },
-    { name: 'Partner NGO', logo: '/partner-ngo-1.svg' },
-    { name: 'Government Agency', logo: '/partner-gov.svg' },
-  ]
-
-  return (
-    <section ref={sectionRef} className="w-full bg-[#1C1917] py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Partners */}
-        <motion.div
-          {...fadeUp}
-          animate={inView ? fadeUp.animate : fadeUp.initial}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
-          className="text-center mb-12"
-        >
-          <h2 className="font-display text-[28px] font-bold text-white">
-            Trusted by leading organizations
-          </h2>
-          <p className="mt-3 text-base text-[#A8A29E] max-w-[600px] mx-auto">
-            We collaborate with NGOs, government agencies, and healthcare providers to expand access to mental health support.
-          </p>
-        </motion.div>
-
-        {/* Partner Logos */}
-        <motion.div
-          variants={staggerContainerFast}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
-          className="flex flex-wrap items-center justify-center gap-8 lg:gap-12"
-        >
-          {partners.map((p, i) => (
-            <motion.div
-              key={`${p.name}-${i}`}
-              variants={fadeUp}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            >
-              <img
-                src={p.logo}
-                alt={p.name}
-                className="h-12 w-auto object-contain"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
-          className="mt-16 flex justify-center"
-        >
-          <div className="relative max-w-[900px] w-full rounded-[20px] bg-[#DC2626] px-8 py-14 lg:px-14 lg:py-16 text-center overflow-hidden">
-            {/* Decorative watermark */}
-            <Heart className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 text-white/[0.08] pointer-events-none" />
-
-            <div className="relative z-10">
-              <h3 className="font-display text-[28px] lg:text-[36px] font-bold text-white">
-                Ready to prioritize your mental health?
-              </h3>
-              <p className="mt-3 text-base text-white/80 max-w-[500px] mx-auto">
-                Take the first step today. It's free, confidential, and takes just 3 minutes.
-              </p>
-              <motion.div
-                variants={staggerContainer}
-                initial="initial"
-                animate={inView ? 'animate' : 'initial'}
-                className="mt-8 flex flex-wrap items-center justify-center gap-4"
-              >
-                <motion.div variants={fadeUp} transition={{ delay: 0.2 }}>
-                  <Link
-                    to="/assessment"
-                    className="inline-flex items-center rounded-lg border-2 border-white px-7 py-3.5 text-base font-semibold text-white hover:bg-white hover:text-[#DC2626] active:scale-[0.98] transition-all duration-250"
-                  >
-                    Take Free Assessment
-                  </Link>
-                </motion.div>
-                <motion.div variants={fadeUp} transition={{ delay: 0.3 }}>
-                  <a
-                    href="https://wa.me/2348001234567"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-lg bg-white px-7 py-3.5 text-base font-semibold text-[#DC2626] hover:bg-[#F5F5F4] active:scale-[0.98] transition-all duration-250"
-                  >
-                    <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Chat on WhatsApp
-                  </a>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-/* ------------------------------------------------------------------ */
 /*  Home Page                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -878,12 +566,9 @@ export default function Home() {
     <>
       <AnnouncementBar />
       <HeroSection />
-      <MissionSection />
       <ServicesSection />
-      <ImpactSection />
       <ResourcesSection />
       <TestimonialsSection />
-      <PartnersSection />
     </>
   )
 }

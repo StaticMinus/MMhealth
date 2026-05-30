@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail,
-  Stethoscope,
   Phone,
   MapPin,
+  Globe,
   AlertTriangle,
   CheckCircle,
   HandHeart,
@@ -104,22 +104,22 @@ function Section({
 /* ─── Contact Card Data ─── */
 const contactCards = [
   {
-    icon: Mail,
+    icon: Phone,
     iconBg: '#FEE2E2',
     iconColor: '#DC2626',
-    title: 'General Inquiries',
-    contact: 'info@redaidnigeria.org',
-    href: 'mailto:info@redaidnigeria.org',
+    title: 'Phone',
+    contact: '0809 445 5221',
+    href: 'tel:08094455221',
     hours: 'Monday–Friday, 9am–5pm WAT',
-    type: 'email' as const,
+    type: 'phone' as const,
   },
   {
-    icon: Stethoscope,
+    icon: Mail,
     iconBg: '#E8F0EC',
     iconColor: '#6B9080',
-    title: 'Support & Counseling',
-    contact: 'support@redaidnigeria.org',
-    href: 'mailto:support@redaidnigeria.org',
+    title: 'Email',
+    contact: 'office@redaidnigeria.org',
+    href: 'mailto:office@redaidnigeria.org',
     hours: '24/7 Availability',
     type: 'email' as const,
   },
@@ -128,20 +128,20 @@ const contactCards = [
     iconBg: '#DCFCE7',
     iconColor: '#25D366',
     title: 'WhatsApp',
-    contact: '+234-800-HELP-NOW',
-    href: 'https://wa.me/2348004357669',
+    contact: '0809 445 5221',
+    href: 'https://wa.me/2348094455221',
     hours: 'Instant messaging support',
     type: 'whatsapp' as const,
   },
   {
-    icon: Phone,
+    icon: Globe,
     iconBg: '#FEE2E2',
     iconColor: '#DC2626',
-    title: 'Crisis Hotline',
-    contact: '0800-MENTAL-HELP',
-    href: 'tel:08006368254357',
-    hours: '24/7 Emergency support',
-    type: 'phone' as const,
+    title: 'More Information',
+    contact: 'redaidnigeria.org',
+    href: 'https://redaidnigeria.org',
+    hours: 'Visit our website',
+    type: 'link' as const,
   },
 ]
 
@@ -176,88 +176,6 @@ function ContactCard({
         {card.contact}
       </a>
       <p className="mt-2 text-sm font-normal text-[#A8A29E]">{card.hours}</p>
-    </motion.div>
-  )
-}
-
-/* ─── Office Location Data ─── */
-const officeLocations = [
-  {
-    city: 'Abuja (FCT)',
-    address: '123 Community Health Drive, CBD',
-    phone: '0800-MENTAL-HELP',
-    badge: 'Head Office',
-    badgeColor: '#DC2626',
-  },
-  {
-    city: 'Lagos',
-    address: '45 Wellness Avenue, Ikeja',
-    phone: '0800-MENTAL-HELP',
-    badge: 'Regional Office',
-    badgeColor: '#6B9080',
-  },
-  {
-    city: 'Kano',
-    address: '78 Support Street, City Centre',
-    phone: '0800-MENTAL-HELP',
-    badge: 'Regional Office',
-    badgeColor: '#3D8B8B',
-  },
-]
-
-/* ─── Office Card ─── */
-function OfficeCard({
-  office,
-}: {
-  office: (typeof officeLocations)[0]
-}) {
-  return (
-    <motion.div
-      variants={staggerItem}
-      className="group overflow-hidden rounded-2xl border border-[#E7E5E4] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1"
-    >
-      {/* Map Placeholder */}
-      <div className="relative h-[200px] w-full bg-[#F5EDE4] overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="mx-auto h-8 w-8 text-[#DC2626]" />
-            <p className="mt-2 text-sm font-medium text-[#57534E]">{office.city}</p>
-          </div>
-        </div>
-        {/* Decorative map pattern */}
-        <svg className="absolute inset-0 h-full w-full opacity-10" viewBox="0 0 400 200">
-          <defs>
-            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#57534E" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="400" height="200" fill="url(#grid)" />
-          <circle cx="200" cy="100" r="40" fill="#6B9080" opacity="0.3" />
-          <circle cx="150" cy="80" r="20" fill="#3D8B8B" opacity="0.2" />
-          <circle cx="260" cy="120" r="15" fill="#DC2626" opacity="0.2" />
-        </svg>
-        {/* Badge */}
-        <div
-          className="absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-white"
-          style={{ backgroundColor: office.badgeColor }}
-        >
-          {office.badge}
-        </div>
-      </div>
-      {/* Content */}
-      <div className="p-6">
-        <h4 className="text-xl font-semibold text-[#1C1917]">{office.city}</h4>
-        <div className="mt-3 flex items-start gap-2">
-          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#A8A29E]" />
-          <p className="text-[15px] font-normal text-[#57534E]">{office.address}</p>
-        </div>
-        <div className="mt-2 flex items-center gap-2">
-          <Phone className="h-4 w-4 shrink-0 text-[#A8A29E]" />
-          <a href={`tel:${office.phone.replace(/-/g, '')}`} className="text-[15px] font-medium text-[#3D8B8B] hover:text-[#2A6868] transition-colors">
-            {office.phone}
-          </a>
-        </div>
-      </div>
     </motion.div>
   )
 }
@@ -383,21 +301,21 @@ export default function Contact() {
             If you&apos;re in crisis, reach out now
           </h2>
           <p className="mt-2 font-accent text-2xl font-semibold text-white md:text-3xl animate-pulse-crisis">
-            0800-MENTAL-HELP
+            0809 445 5221
           </p>
           <p className="mt-1 text-sm font-normal text-white/80">
             24/7 Crisis Support — Free &amp; Confidential
           </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="tel:08006368254357"
+              href="tel:08094455221"
               className="inline-flex items-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-[#991B1B] transition-all duration-200 hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
             >
               <Phone className="mr-2 h-4 w-4" />
               Call Now
             </a>
             <a
-              href="https://wa.me/2348004357669"
+              href="https://wa.me/2348094455221"
               className="inline-flex items-center rounded-lg px-6 py-3 text-base font-semibold text-white transition-all duration-200 hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
               style={{ backgroundColor: '#25D366' }}
             >
@@ -697,9 +615,8 @@ export default function Contact() {
                     <h4 className="text-lg font-semibold text-[#1C1917]">Head Office</h4>
                     <div className="mt-2 space-y-1 text-[15px] font-normal text-[#57534E]">
                       <p>Red Aid Nigeria</p>
-                      <p>123 Community Health Drive</p>
-                      <p>Central Business District</p>
-                      <p>Abuja, FCT, Nigeria</p>
+                      <p>56 Nza St, Independence Layout</p>
+                      <p>Enugu 400001, Enugu</p>
                     </div>
                   </div>
                 </div>
@@ -734,10 +651,10 @@ export default function Contact() {
                 <p className="text-sm font-normal text-[#44403C] leading-relaxed">
                   Interested in partnering with us? Email{' '}
                   <a
-                    href="mailto:partnerships@redaidnigeria.org"
+                    href="mailto:office@redaidnigeria.org"
                     className="font-medium text-[#3D8B8B] hover:text-[#2A6868] transition-colors"
                   >
-                    partnerships@redaidnigeria.org
+                    office@redaidnigeria.org
                   </a>{' '}
                   directly.
                 </p>
@@ -781,48 +698,7 @@ export default function Contact() {
         </div>
       </Section>
 
-      {/* ─── Section 5: Office Locations ─── */}
-      <Section className="bg-[#F5EDE4] py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-sm font-semibold uppercase tracking-[0.15em] text-[#DC2626]"
-            >
-              Our Offices
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-3 font-display text-3xl font-bold text-[#1C1917] md:text-4xl lg:text-5xl"
-            >
-              Find us across Nigeria
-            </motion.h2>
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } },
-            }}
-            className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3"
-          >
-            {officeLocations.map((office) => (
-              <OfficeCard key={office.city} office={office} />
-            ))}
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* ─── Section 6: FAQ CTA ─── */}
+      {/* ─── Section 5: FAQ CTA ─── */}
       <Section className="bg-[#1C1917] py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <motion.div
@@ -835,8 +711,7 @@ export default function Contact() {
               Have more questions?
             </h2>
             <p className="mx-auto mt-4 max-w-[600px] text-base font-normal text-[#A8A29E]">
-              Visit our resources page for more information, or chat with our AI assistant for
-              instant answers.
+              Visit our resources page for more information, or call us for immediate support.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
@@ -845,13 +720,13 @@ export default function Contact() {
               >
                 Browse Resources
               </Link>
-              <Link
-                to="/ai-assistant"
+              <a
+                href="tel:08094455221"
                 className="inline-flex items-center rounded-lg bg-[#DC2626] px-7 py-3.5 text-base font-semibold text-white transition-all duration-250 hover:bg-[#B91C1C] hover:scale-[1.02] hover:shadow-primary active:scale-[0.98]"
               >
-                Chat with AI
+                Call Now
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

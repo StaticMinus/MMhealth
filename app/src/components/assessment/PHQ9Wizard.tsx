@@ -233,7 +233,7 @@ export default function PHQ9Wizard({
                     reach out immediately. You are not alone.
                   </p>
                   <a
-                    href="tel:0800-MENTAL-HELP"
+                    href="tel:0809 445 5221"
                     className="inline-flex items-center gap-2 bg-[#991B1B] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#7F1D1D] transition-all duration-200 animate-pulse"
                   >
                     <AlertTriangle className="w-4 h-4" />

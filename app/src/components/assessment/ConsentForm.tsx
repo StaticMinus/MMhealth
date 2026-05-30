@@ -108,7 +108,7 @@ export default function ConsentForm({ onBegin }: ConsentFormProps) {
             24/7 crisis line:{" "}
             <span className="font-semibold text-[#DC2626]">
               {" "}
-              0800-MENTAL-HELP
+              0809 445 5221
             </span>{" "}
             or visit our emergency page.
           </p>

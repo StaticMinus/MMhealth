@@ -544,7 +544,7 @@ export default function Support() {
                 )}
               </ul>
               <Button className="w-full bg-[#991B1B] hover:bg-[#7F1D1D] text-white font-bold text-lg rounded-lg animate-pulse">
-                Call: 0800-MENTAL-HELP
+                Call: 0809 445 5221
               </Button>
             </motion.div>
           </div>
@@ -886,17 +886,17 @@ export default function Support() {
                 {
                   icon: Phone,
                   label: 'Crisis Hotline',
-                  value: '0800-MENTAL-HELP',
+                  value: '0809 445 5221',
                 },
                 {
                   icon: MessageCircle,
                   label: 'WhatsApp Crisis Line',
-                  value: '+234-800-HELP-NOW',
+                  value: '0809 445 5221',
                 },
                 {
                   icon: Mail,
                   label: 'Emergency Email',
-                  value: 'crisis@redaidnigeria.org',
+                  value: 'office@redaidnigeria.org',
                 },
               ].map((card, i) => {
                 const Icon = card.icon

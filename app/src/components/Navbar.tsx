@@ -5,11 +5,8 @@ import { Menu, X, Phone } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Assessment', path: '/assessment' },
   { label: 'Resources', path: '/resources' },
-  { label: 'Find Support', path: '/find-support' },
-  { label: 'AI Assistant', path: '/ai-assistant' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -46,7 +43,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 h-[72px] border-b border-transparent bg-white/80 backdrop-blur-[12px] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-[80px] border-b border-transparent bg-white/80 backdrop-blur-[12px] transition-all duration-300 ${
         scrolled ? 'shadow-nav-scroll border-[#E7E5E4]' : ''
       }`}
     >
@@ -80,13 +77,15 @@ export default function Navbar() {
 
           {/* Desktop CTA + Mobile Menu Toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/dashboard"
+            <a
+              href="https://wa.me/2348094455221"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden lg:inline-flex items-center rounded-lg bg-[#DC2626] px-4 py-2 text-sm font-semibold text-white hover:bg-[#B91C1C] hover:scale-[1.02] hover:shadow-primary active:scale-[0.98] transition-all duration-250"
             >
               <Phone className="mr-2 h-4 w-4" />
               WhatsApp
-            </Link>
+            </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden rounded-md p-2 text-[#292524] hover:bg-[#F5F5F4] transition-colors"
@@ -119,7 +118,7 @@ export default function Navbar() {
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
               className="fixed top-0 right-0 bottom-0 z-50 w-[85vw] max-w-[400px] bg-white shadow-2xl lg:hidden"
             >
-              <div className="flex h-[72px] items-center justify-end px-4 border-b border-[#E7E5E4]">
+              <div className="flex h-[80px] items-center justify-end px-4 border-b border-[#E7E5E4]">
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="rounded-md p-2 text-[#292524] hover:bg-[#F5F5F4] transition-colors"
@@ -154,13 +153,15 @@ export default function Navbar() {
                   transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
                   className="mt-4 pt-4 border-t border-[#E7E5E4]"
                 >
-                  <Link
-                    to="/dashboard"
+                  <a
+                    href="https://wa.me/2348094455221"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center rounded-lg bg-[#DC2626] px-4 py-3 text-base font-semibold text-white hover:bg-[#B91C1C] transition-colors"
                   >
                     <Phone className="mr-2 h-4 w-4" />
                     Chat on WhatsApp
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

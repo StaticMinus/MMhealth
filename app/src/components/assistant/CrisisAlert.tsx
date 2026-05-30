@@ -30,11 +30,11 @@ export default function CrisisAlert({ onDismiss }: CrisisAlertProps) {
             If you are in immediate danger, please get help now
           </h4>
           <p className="mt-1 text-sm text-white/80">
-            Call our 24/7 crisis line: <strong className="text-white">0800-MENTAL-HELP</strong>
+            Call our 24/7 crisis line: <strong className="text-white">0809 445 5221</strong>
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <a
-              href="tel:0800-MENTAL-HELP"
+              href="tel:0809 445 5221"
               className="inline-flex items-center gap-1.5 rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-[#991B1B] hover:bg-white/90 transition-colors"
             >
               <Phone className="h-3.5 w-3.5" />

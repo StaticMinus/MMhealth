@@ -100,7 +100,7 @@ Remember, it's okay to ask for help. If stress feels overwhelming, speaking with
 If you've been experiencing symptoms for more than two weeks, or they're interfering with your daily life, please reach out to a mental health professional. Treatment options include therapy, medication, or a combination — and they work.
 
 **Immediate Help:**
-If you're having thoughts of hurting yourself, please contact our crisis line immediately: **0800-MENTAL-HELP**. You are not alone.`,
+If you're having thoughts of hurting yourself, please contact our crisis line immediately: **0809 445 5221**. You are not alone.`,
     resources: [
       {
         id: 'r3',
@@ -231,7 +231,7 @@ Your first session will typically involve the counselor getting to know you and 
 **Immediate Support:**
 If you need to talk right now, you can also:
 - Chat with our team on WhatsApp
-- Call our helpline: **0800-MENTAL-HELP**
+- Call our helpline: **0809 445 5221**
 - Visit a walk-in center near you
 
 Would you like me to guide you to our counselor directory?`,
@@ -251,7 +251,7 @@ Would you like me to guide you to our counselor directory?`,
 
 **Please get immediate help:**
 
-Call our 24/7 Crisis Line: **0800-MENTAL-HELP**
+Call our 24/7 Crisis Line: **0809 445 5221**
 
 You can also:
 - Go to the nearest hospital emergency department
@@ -265,7 +265,7 @@ You can also:
 - People care about you and want to support you
 
 **Crisis Resources:**
-- Suicide Hotline Nigeria: 0800-MENTAL-HELP
+- Suicide Hotline Nigeria: 0809 445 5221
 - Emergency Services: 112
 - WhatsApp Crisis Chat: Available 24/7
 
@@ -284,7 +284,7 @@ I'm here to listen and provide support. While I'm an AI assistant and not a repl
 - Help you find a professional counselor if needed
 - Provide information about mental health conditions
 
-**If you're in crisis or having thoughts of hurting yourself, please call our 24/7 helpline: 0800-MENTAL-HELP or dial 112 for emergency services.**
+**If you're in crisis or having thoughts of hurting yourself, please call our 24/7 helpline: 0809 445 5221 or dial 112 for emergency services.**
 
 Is there something specific you'd like to talk about or learn more about?`,
   },

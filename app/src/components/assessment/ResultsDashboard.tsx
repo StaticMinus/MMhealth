@@ -381,11 +381,11 @@ export default function ResultsDashboard({
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="tel:0800-MENTAL-HELP"
+              href="tel:0809 445 5221"
               className="inline-flex items-center gap-2 bg-white text-[#991B1B] font-bold text-base px-6 py-3 rounded-lg hover:bg-[#F5F5F4] transition-all duration-200 animate-pulse"
             >
               <Phone className="w-5 h-5" />
-              Call Crisis Line: 0800-MENTAL-HELP
+              Call Crisis Line: 0809 445 5221
             </a>
             <Link
               to="/contact"
@@ -545,7 +545,7 @@ export default function ResultsDashboard({
       >
         This assessment is for screening purposes only and does not constitute a
         medical diagnosis. If you are experiencing a mental health emergency,
-        please call 112 or our crisis line at 0800-MENTAL-HELP.
+        please call 112 or our crisis line at 0809 445 5221.
       </motion.p>
     </motion.div>
   );

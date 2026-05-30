@@ -21,12 +21,12 @@ export default function CrisisBanner() {
                 <Phone className="h-4 w-4" />
                 <span className="text-sm font-medium">
                   Crisis Helpline:{' '}
-                  <a href="tel:+2348001234567" className="font-semibold underline underline-offset-2 hover:text-white/90">
-                    0800 123 4567
+                  <a href="tel:08094455221" className="font-semibold underline underline-offset-2 hover:text-white/90">
+                    0809 445 5221
                   </a>
                 </span>
                 <a
-                  href="tel:+2348001234567"
+                  href="tel:08094455221"
                   className="hidden sm:inline-flex items-center rounded-md bg-white/10 px-3 py-1 text-xs font-semibold hover:bg-white/20 transition-colors animate-pulse-crisis"
                 >
                   Get Immediate Help

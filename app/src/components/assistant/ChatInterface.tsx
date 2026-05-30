@@ -225,8 +225,8 @@ export default function ChatInterface() {
           {/* Disclaimer */}
           <p className="px-4 pb-3 text-center text-xs text-[#A8A29E]">
             This AI assistant is for support and education only. If you&apos;re in crisis, please call{' '}
-            <a href="tel:0800-MENTAL-HELP" className="text-[#DC2626] font-medium hover:underline">
-              0800-MENTAL-HELP
+            <a href="tel:0809 445 5221" className="text-[#DC2626] font-medium hover:underline">
+              0809 445 5221
             </a>
             .
           </p>

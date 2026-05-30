@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Heart, Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 const quickLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About Us', path: '/about' },
   { label: 'Take Assessment', path: '/assessment' },
-  { label: 'Find Support', path: '/find-support' },
-  { label: 'AI Assistant', path: '/ai-assistant' },
+  { label: 'Resources', path: '/resources' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -35,9 +33,11 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-[#A8A29E] max-w-xs">
               Red Aid Nigeria provides free, confidential mental health screening and psychosocial support to communities across Nigeria.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-[#A8A29E]">
-              <Heart className="h-4 w-4 text-[#DC2626]" />
-              <span className="text-sm">Powered by compassion</span>
+            <div className="mt-6 text-[#A8A29E]">
+              <span className="text-sm">For more info visit </span>
+              <a href="https://redaidnigeria.org" target="_blank" rel="noopener noreferrer" className="text-sm text-[#DC2626] hover:text-white transition-colors">
+                redaidnigeria.org
+              </a>
             </div>
           </div>
 
@@ -88,19 +88,19 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-[#DC2626] shrink-0 mt-0.5" />
                 <span className="text-sm text-[#A8A29E]">
-                  Lagos, Nigeria
+                  56 Nza St, Independence Layout, Enugu 400001, Enugu
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#DC2626] shrink-0" />
-                <a href="tel:+2348001234567" className="text-sm text-[#A8A29E] hover:text-white transition-colors">
-                  0800 123 4567
+                <a href="tel:08094455221" className="text-sm text-[#A8A29E] hover:text-white transition-colors">
+                  0809 445 5221
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#DC2626] shrink-0" />
-                <a href="mailto:help@redaidnigeria.org" className="text-sm text-[#A8A29E] hover:text-white transition-colors">
-                  help@redaidnigeria.org
+                <a href="mailto:office@redaidnigeria.org" className="text-sm text-[#A8A29E] hover:text-white transition-colors">
+                  office@redaidnigeria.org
                 </a>
               </li>
             </ul>
@@ -125,7 +125,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-[#292524] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[#A8A29E]">
-            {new Date().getFullYear()} Red Aid Nigeria. All rights reserved.
+            2024 Red Aid Nigeria. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link to="/" className="text-xs text-[#A8A29E] hover:text-white transition-colors">

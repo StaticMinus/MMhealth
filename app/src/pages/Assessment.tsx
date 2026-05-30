@@ -55,7 +55,7 @@ const faqItems = [
   {
     question: "What if I'm in crisis?",
     answer:
-      "If you're experiencing thoughts of self-harm or are in immediate danger, please call our 24/7 crisis line: 0800-MENTAL-HELP. You can also visit our emergency support page for immediate resources. If it's a life-threatening emergency, call emergency services at 112.",
+      "If you're experiencing thoughts of self-harm or are in immediate danger, please call our 24/7 crisis line: 0809 445 5221. You can also visit our emergency support page for immediate resources. If it's a life-threatening emergency, call emergency services at 112.",
   },
   {
     question: "Can I retake the assessment?",
@@ -542,7 +542,7 @@ export default function Assessment() {
                 If you&apos;re in immediate danger
               </h2>
               <motion.a
-                href="tel:0800-MENTAL-HELP"
+                href="tel:0809 445 5221"
                 animate={{
                   textShadow: [
                     "0 0 0px rgba(255,255,255,0)",
@@ -557,7 +557,7 @@ export default function Assessment() {
                 }}
                 className="inline-block font-accent text-3xl md:text-4xl font-semibold text-white mb-3 hover:underline"
               >
-                0800-MENTAL-HELP
+                0809 445 5221
               </motion.a>
               <p className="text-base text-white/80 mb-6">
                 24/7 Crisis Support Line &mdash; Free and Confidential

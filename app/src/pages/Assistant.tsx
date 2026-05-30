@@ -400,7 +400,7 @@ export default function Assistant() {
 
             {/* Call Helpline — Ghost */}
             <a
-              href="tel:0800-MENTAL-HELP"
+              href="tel:0809 445 5221"
               className="inline-flex items-center rounded-lg border border-white/30 px-7 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
             >
               <Phone className="mr-2 h-4 w-4" />
